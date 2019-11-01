@@ -100,3 +100,12 @@
     width: 23px;
     height: 23px;
 }
+
+.m_text{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.s_text{
+  font-size: 12px;
+}
