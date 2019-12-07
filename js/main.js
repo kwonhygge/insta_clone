@@ -18,6 +18,17 @@ function delegationFunc(e){
 
   if (elem.matches('[data-name="heartbeat"]')){
 
+    $.ajax({
+      type:'POST',
+      url:'data/like.json',
+      data:37,
+      dataType:'json',
+      success: function(response){
+        let likecount = document.querySelector('#like-count37');
+        likecount.innerHTML = "좋아요" + response.like_count + "개";
+      }
+    })
+
   }else if (elem.matches('[data-name="bookmark"]')) {
 
   }else if (elem.matches('[data-name="share"]')) {
