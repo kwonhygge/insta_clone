@@ -3,6 +3,8 @@ body{
 
 }
 
+
+/* Header  */
 #header{
   width : 100%;
   position: absolute;
@@ -89,4 +91,142 @@ body{
   width: 132px;
   display: flex;
   justify-content: space-between;
+}
+
+/* Main container */
+
+#main_container{
+  /* 마진으로 밀면 마진 병합 현상이 일어날 수 있음 */
+  /* 콘텐츠는 위에서 아래로 -> 아래에서 밀어야할 때는
+  아래와 같이 Padding-top을 이용 */
+  padding-top: 130px;
+  display: flex;
+  justify-content: center;
+}
+
+#main_container .inner{
+  width: 935px;
+}
+
+.contents_box{
+
+}
+
+.contents{
+  width: 614px;
+  border: 1px solid rgba(0,0,0,0.09);
+  border-radius: 3px;
+  margin-bottom: 60px;
+}
+
+.contents .top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.contents .top .user_container{
+  display: flex;
+}
+
+.contents .top .profile_img{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.contents .top .profile_img img{
+  width: 100%;
+}
+
+.contents .img_section{
+  overflow: hidden;
+}
+
+.contents .img_section img{
+  width: 100%;
+}
+/* bottom icons */
+.contents .bottom_icons{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.contents .bottom_icons .left_icons{
+  display: flex;
+}
+.contents .bottom_icons .left_icons>div{
+  margin-right: 10px;
+  cursor: pointer;
+}
+.contents .bottom_icons .right_icons>div{
+  cursor: pointer;
+}
+
+
+/* likes */
+.contents .likes{
+  padding: 5px 20px;
+  color:#262626;
+}
+
+/* comment container */
+.contents .comment_container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+
+.contents .comment_container .comment{
+  display: flex;
+  font-size: 14px;
+
+}
+
+.contents .comment_container .comment .nick_name{
+  margin-right: 10px;
+}
+
+.contents .timer{
+  font-size: 10px;
+  letter-spacing: 0.2px;
+  color: #999;
+  border-bottom: 1px solid rgba(0,0,0,0.09);
+  padding: 10px 20px;
+}
+
+.contents .comment_field{
+  min-height: 56px;
+  padding: 0 20px;
+  position: relative;
+}
+
+.contents .comment_field input{
+  width: 100%;
+  height: 56px;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.contents .comment_field input:focus ~ .upload_btn{
+  pointer-events: initial;
+  opacity: 1;
+}
+
+.contents .comment_field .upload_btn{
+  color: #3897f0;
+  position: absolute;
+  right: 20px;
+  top:50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  pointer-events: none;
+  opacity: 0.6;
 }
