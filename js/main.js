@@ -14,16 +14,30 @@ const delegationFunc = (e) => {
             return;
         }
     }
-    // if(elem.matches("[data-name=heartbeat]")){
+    if(elem.matches("[data-name=heartbeat]")){
 
-    // }else if(elem.matches("[data-name=bookmark]")){
+        $.ajax({
+            type:"POST",
+            url:"data/like.json",
+            data:37,
+            dataType:"json",
+            success: function(response){
+                let likeCount = document.querySelector("#like-count-37");
+                likeCount.innerHTML = "좋아요" + response.like_count + "개";
+            },
+            error: function(request,status,error){
+                alert("로그인이 필요합니다.");
+                window.location.replace("https://www.naver.com");
+            }
+        })
+    }else if(elem.matches("[data-name=bookmark]")){
 
-    // }else if(elem.matches("[data-name=share]")){
+    }else if(elem.matches("[data-name=share]")){
 
-    // }
-    // else if(elem.matches("[data-name=more]")){
+    }
+    else if(elem.matches("[data-name=more]")){
 
-    // }
+    }
     elem.classList.toggle("on");
 }
 
