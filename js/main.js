@@ -2,6 +2,30 @@ const hearts = document.querySelectorAll(".heart_btn");
 const header = document.querySelector("#header");
 const sidebox = document.querySelector(".side_box");
 const variableWidth = document.querySelectorAll(".contents_box .contents");
+const delegation = document.querySelector(".contents_box");
+
+const delegationFunc = (e) => {
+    let elem = e.target;
+
+    while(!elem.getAttribute("data-name")){
+        elem=elem.parentNode;
+        if(elem.nodeName === "BODY"){
+            elem=null;
+            return;
+        }
+    }
+    // if(elem.matches("[data-name=heartbeat]")){
+
+    // }else if(elem.matches("[data-name=bookmark]")){
+
+    // }else if(elem.matches("[data-name=share]")){
+
+    // }
+    // else if(elem.matches("[data-name=more]")){
+
+    // }
+    elem.classList.toggle("on");
+}
 
 const resizeFunc = () => {
     if(pageYOffset>=10){
@@ -19,7 +43,9 @@ const resizeFunc = () => {
     }else{
        
         for(let i=0; i<variableWidth.length; i++){
-            variableWidth[i].removeAttribute("style");
+            if(window.innerWidth<600){
+              variableWidth[i].removeAttribute("style");  
+            }
         } 
         
     }
@@ -28,19 +54,28 @@ const resizeFunc = () => {
 const scrollFunc = () => {
     if(pageYOffset>=10){
         header.classList.add("on");
-        sidebox.classList.add("on");
+        if(sidebox){
+            sidebox.classList.add("on");
+        }        
         resizeFunc();
     }else{
         header.classList.remove("on");
-        sidebox.classList.remove("on");
-        sidebox.removeAttribute("style");
+        if(sidebox){
+
+            sidebox.classList.remove("on");
+            sidebox.removeAttribute("style");
+        }
     }
 }
 
-hearts.forEach(heart => {
-    heart.addEventListener("click",function(){
-        heart.classList.toggle("on");
-    })
-});
+// 새로고침할때 제일 위로 올라가라
+setTimeout(function(){
+    scrollTo(0,0);
+},100);
+
+if(delegation){
+
+    delegation.addEventListener("click",delegationFunc);
+}
 window.addEventListener("resize",resizeFunc);
 window.addEventListener("scroll",scrollFunc);

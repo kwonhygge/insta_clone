@@ -241,10 +241,6 @@ body{
   cursor: pointer;
 }
 
-.heart_btn.on .sprite_heart_icon_outline{
-  background: url("../imgs/background01.png") no-repeat -26px -261px;
-}
-
 
 /* likes */
 .contents .likes{
@@ -423,7 +419,9 @@ body{
   .side_box{
     display: none;
   }
-
+  .hidden_menu{
+    display: block;
+  }
 
 
 }
